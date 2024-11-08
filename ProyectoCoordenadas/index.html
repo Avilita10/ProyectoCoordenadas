@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Estudiantes</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAWz6VFlkeUzDirurnKTHzB42eBb0nVjuQ&callback=initMap" async defer></script>
+</head>
+<body>
+    <h1>Gestión de Estudiantes</h1>
+    <form id="formEstudiante">
+        <input type="text" id="cedula" placeholder="Cédula" required>
+        <input type="text" id="nombres" placeholder="Nombres" required>
+        <input type="text" id="apellidos" placeholder="Apellidos" required>
+        <input type="text" id="direccion_residencia" placeholder="Dirección de Residencia" required>
+        <input type="text" id="direccion_trabajo" placeholder="Dirección de Trabajo" required>
+
+        <!-- Campos de coordenadas visibles para residencia y trabajo -->
+        <div>
+            <label>Latitud Residencia:</label>
+            <input type="text" id="latitud_residencia" readonly>
+            <label>Longitud Residencia:</label>
+            <input type="text" id="longitud_residencia" readonly>
+        </div>
+
+        <div>
+            <label>Latitud Trabajo:</label>
+            <input type="text" id="latitud_trabajo" readonly>
+            <label>Longitud Trabajo:</label>
+            <input type="text" id="longitud_trabajo" readonly>
+        </div>
+
+        <!-- Botones para marcar en el mapa -->
+        <button type="button" onclick="setResidenceMarker()">Marcar Residencia</button>
+        <button type="button" onclick="setWorkMarker()">Marcar Trabajo</button>
+
+        <input type="submit" value="Agregar Estudiante">
+    </form>
+
+    <div id="map" style="height: 400px;"></div>
+    <h2>Lista de Estudiantes</h2>
+    <ul id="listaEstudiantes"></ul>
+</body>
+</html>
